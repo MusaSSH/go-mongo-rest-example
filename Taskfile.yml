@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  build:
+    cmds:
+      - cmd: docker rmi go-mongo-rest
+        ignore_error: true
+      - docker build -t go-mongo-rest .
+  run:
+    cmds:
+      - docker run -it --rm -p 4356:4356 --name go-mongo-rest go-mongo-rest
